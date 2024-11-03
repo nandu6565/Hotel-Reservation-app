@@ -1,0 +1,62 @@
+.container {
+  max-width: 800px;
+}
+
+/* Reservation Card Styling */
+.reservation-card {
+  background-color: #f8f9fa;
+  padding: 27px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Aligning Labels and Values */
+.reservation-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  font-weight: bold;
+  color: #333;
+  min-width: 120px;
+  margin-left: 27%; /* Ensure alignment */
+}
+.colon {
+  font-weight: bold;
+}
+
+.value {
+  flex: 1;
+  text-align: left;
+  color: #555;
+  padding-left: 40px;
+  margin-left: 40px;
+}
+.value::before {
+  content: ":";
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* Button Styling */
+.reservation-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .reservation-card {
+    padding: 15px;
+  }
+
+  .label {
+    min-width: 90px;
+  }
+}

@@ -1,0 +1,133 @@
+<app-home></app-home>
+
+<form
+  [formGroup]="reservationForm"
+  (ngSubmit)="onSubmit()"
+  class="container mt-5 d-flex flex-column align-items-center"
+>
+  <div class="d-flex form-row mb-3">
+    <div class="form-field">
+      <label class="form-label"><b>Check-In Date</b></label>
+      <input class="form-control" type="date" formControlName="checkInDate" />
+      <div
+        *ngIf="
+          reservationForm.get('checkInDate')?.touched &&
+          reservationForm.get('checkInDate')?.invalid
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="reservationForm.get('checkInDate')?.errors?.['required']"
+        >
+          Check In Date is required.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-label"><b>Check-Out Date</b></label>
+      <input class="form-control" type="date" formControlName="checkOutDate" />
+      <div
+        *ngIf="
+          reservationForm.get('checkOutDate')?.touched &&
+          reservationForm.get('checkOutDate')?.invalid
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="reservationForm.get('checkOutDate')?.errors?.['required']"
+        >
+          Check Out Date is required.
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex form-row mb-3">
+    <div class="form-field">
+      <label class="form-label"><b>Guest Name</b></label>
+      <input class="form-control" formControlName="guestName" type="text" />
+      <div
+        *ngIf="
+          reservationForm.get('guestName')?.touched &&
+          reservationForm.get('guestName')?.invalid
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="reservationForm.get('guestName')?.errors?.['required']"
+        >
+          Guest name is required.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-label"><b>Guest Email</b></label>
+      <input class="form-control" formControlName="guestEmail" type="email" />
+      <div
+        *ngIf="
+          reservationForm.get('guestEmail')?.touched &&
+          reservationForm.get('guestEmail')?.invalid
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="reservationForm.get('guestEmail')?.errors?.['required']"
+        >
+          Guest Email is required.
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex form-row mb-3">
+    <div class="form-field">
+      <label class="form-label"><b>Guest Ph. No</b></label>
+      <input
+        class="form-control"
+        formControlName="guestPhoneNumber"
+        type="number"
+      />
+      <div
+        *ngIf="
+          reservationForm.get('guestPhoneNumber')?.touched &&
+          reservationForm.get('guestPhoneNumber')?.invalid
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="reservationForm.get('guestPhoneNumber')?.errors?.['required']"
+        >
+          Guest phone number is required.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-label"><b>Room Number</b></label>
+      <input class="form-control" formControlName="roomNumber" type="text" />
+      <div
+        *ngIf="
+          reservationForm.get('roomNumber')?.touched &&
+          reservationForm.get('roomNumber')?.invalid
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="reservationForm.get('roomNumber')?.errors?.['required']"
+        >
+          Room number is required.
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <button
+    class="btn btn-primary mt-3"
+    type="submit"
+    [disabled]="reservationForm.invalid"
+  >
+    Submit
+  </button>
+</form>

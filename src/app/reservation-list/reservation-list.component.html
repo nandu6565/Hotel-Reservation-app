@@ -1,0 +1,55 @@
+<app-home></app-home>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-2">
+    Reservation List &nbsp;
+    <span *ngIf="reservations?.length">({{ reservations.length }})</span>
+  </h2>
+  <ol class="list-unstyled" *ngIf="reservations.length; else noReservation">
+    <li *ngFor="let item of reservations" class="mb-4">
+      <div class="reservation-card">
+        <div class="reservation-detail">
+          <span class="label">Guest Name</span>
+          <span class="value">&nbsp;&nbsp;{{ item.guestName }}</span>
+        </div>
+        <div class="reservation-detail">
+          <span class="label">Check-In Date</span>
+          <span class="value">&nbsp;&nbsp;{{ item.checkInDate }}</span>
+        </div>
+        <div class="reservation-detail">
+          <span class="label">Check-Out Date</span>
+          <span class="value">&nbsp;&nbsp;{{ item.checkOutDate }}</span>
+        </div>
+        <div class="reservation-detail">
+          <span class="label">Email</span>
+          <span class="value">&nbsp;&nbsp;{{ item.guestEmail }}</span>
+        </div>
+        <div class="reservation-detail">
+          <span class="label">Ph Number</span>
+          <span class="value">&nbsp;&nbsp;{{ item.guestPhoneNumber }}</span>
+        </div>
+        <div class="reservation-detail">
+          <span class="label">Room Number</span>
+          <span class="value">&nbsp;&nbsp;{{ item.roomNumber }}</span>
+        </div>
+        <div class="reservation-actions text-center mt-4">
+          <button
+            (click)="deleteReservation(item.id)"
+            class="btn btn-danger mx-5"
+          >
+            Delete &nbsp; <i class="fas fa-trash"></i>
+          </button>
+          <button
+            [routerLink]="['/edit', item.id]"
+            class="btn btn-secondary mx-2"
+          >
+            Edit &nbsp; <i class="fas fa-edit"></i>
+          </button>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <ng-template #noReservation>
+    <p class="text-center">No reservations available</p>
+  </ng-template>
+</div>
